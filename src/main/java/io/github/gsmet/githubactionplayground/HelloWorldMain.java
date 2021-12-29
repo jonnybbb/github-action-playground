@@ -13,7 +13,7 @@ public class HelloWorldMain implements QuarkusApplication {
 
         Inputs inputs = new Inputs();
 
-        System.out.print(inputs.get("who-to-greet"));
+        System.out.println(inputs.get("who-to-greet"));
 
         Outputs outputs = new Outputs();
         outputs.add("testKey", "testValue");

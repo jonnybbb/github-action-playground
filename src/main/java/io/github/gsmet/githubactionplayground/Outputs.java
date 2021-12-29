@@ -23,6 +23,8 @@ public class Outputs {
     }
 
     public void produce() {
+        // make sure the set-output commands will be on a new line
+        System.out.println();
         for (Entry<String, String> outputEntry : outputs.entrySet()) {
             System.out.println("::set-output name=" + outputEntry.getKey() + "::" + outputEntry.getValue());
         }
