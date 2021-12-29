@@ -8,7 +8,17 @@ public class HelloWorldMain implements QuarkusApplication {
 
     @Override
     public int run(String... args) throws Exception {
-        System.out.println("Hello " + args[0]);
+        Context context = new Context();
+        context.print();
+
+        Inputs inputs = new Inputs();
+
+        System.out.print(inputs.get("who-to-greet"));
+
+        Outputs outputs = new Outputs();
+        outputs.add("testKey", "testValue");
+        outputs.produce();
+
         return 0;
     }
 }
