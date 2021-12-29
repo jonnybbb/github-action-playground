@@ -9,5 +9,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/gsmet/github-action-playground:main'
+  pre-entrypoint: '/work/application'
+  post-entrypoint: '/work/application'
   args:
     - ${{ inputs.who-to-greet }}
