@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 
 public class Inputs {
 
     private static final String INPUT_PREFIX = "INPUT_";
+    private static final String ACTION = "action";
+    private static final String GITHUB_TOKEN = "github-token";
 
     private final Map<String, String> inputs = new HashMap<>();
 
@@ -27,5 +30,13 @@ public class Inputs {
         }
 
         return inputs.get(key);
+    }
+
+    public Optional<String> getAction() {
+        return Optional.ofNullable(inputs.get(ACTION));
+    }
+
+    public Optional<String> getGitHubToken() {
+        return Optional.ofNullable(inputs.get(GITHUB_TOKEN));
     }
 }
