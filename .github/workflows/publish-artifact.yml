@@ -2,6 +2,8 @@ name: Create and publish artifact to Maven repository
 
 on:
   workflow_dispatch:
+  push:
+    branches: ['main']
 
 jobs:
   build-and-push-artifact:
