@@ -16,6 +16,8 @@
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <quarkus.platform.version>2.11.0.Final</quarkus.platform.version>
         <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+
+        <quarkus-github-action.version>999-SNAPSHOT</quarkus-github-action.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -32,6 +34,11 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkiverse.githubaction</groupId>
+            <artifactId>quarkus-github-action</artifactId>
+            <version>${quarkus-github-action.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -120,4 +127,20 @@
             <url>https://maven.pkg.github.com/gsmet/github-action-playground</url>
         </repository>
     </distributionManagement>
+    <repositories>
+        <repository>
+            <id>ossrh-snapshots</id>
+            <name>OSSRH Snapshots</name>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
