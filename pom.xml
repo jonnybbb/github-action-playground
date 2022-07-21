@@ -113,4 +113,11 @@
             </properties>
         </profile>
     </profiles>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub gsmet/github-action-playground Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/gsmet/github-action-playground</url>
+        </repository>
+    </distributionManagement>
 </project>
