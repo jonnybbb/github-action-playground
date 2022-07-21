@@ -17,7 +17,7 @@ runs:
   steps:
     - run: curl -Ls https://sh.jbang.dev | bash -s - app setup
       shell: bash
-    - run: ~/.jbang/bin/jbang --quiet --repos https://${{ inputs.maven-repository-read-token }}@maven.pkg.github.com/gsmet/github-action-playground,mavencentral io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+    - run: ~/.jbang/bin/jbang --quiet --repos https://${{ inputs.maven-repository-read-token }}@maven.pkg.github.com/gsmet/github-action-playground,mavencentral io.github.gsmet:github-action-playground:999-SNAPSHOT
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
