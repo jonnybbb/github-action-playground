@@ -10,11 +10,11 @@ public class PlaygroundAction {
 
     @Action
     void action(Inputs inputs, Commands commands) {
-        System.out.println(inputs.get("who-to-greet"));
-
         for (Entry<String, String> envEntry : System.getenv().entrySet()) {
            System.out.println("ENV: " + envEntry.getKey() + "=" + envEntry.getValue());
         }
+
+        System.out.println(inputs.get("who-to-greet"));
 
         commands.setOutput("testKey", "testValue");
         commands.jobSummary("## Test :rocket:");
