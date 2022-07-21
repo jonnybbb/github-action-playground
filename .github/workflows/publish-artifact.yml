@@ -24,7 +24,7 @@ jobs:
       - name: Build and publish to Maven repository
         shell: bash
         run: |
-          ./mvnw clean deploy -s .github/settings.xml
+          ./mvnw -B -s .github/settings.xml clean deploy
         env:
           MAVEN_GITHUB_SERVER_USERNAME: ${{ secrets.MAVEN_GITHUB_SERVER_USERNAME }}
           MAVEN_GITHUB_SERVER_PASSWORD: ${{ secrets.MAVEN_GITHUB_SERVER_PASSWORD }}
