@@ -12,6 +12,9 @@ inputs:
   maven-repository-read-token:
     description: 'Maven repository read token'
     required: true
+  artifact-read-token:
+    description: 'Token only'
+    required: true
 runs:
   using: "composite"
   steps:
@@ -19,6 +22,12 @@ runs:
       shell: bash
     - run: curl -L https://${{ inputs.maven-repository-read-token }}@maven.pkg.github.com/gsmet/github-action-playground/io/github/gsmet/github-action-playground/1.0.0-SNAPSHOT/github-action-playground-1.0.0-20220722.093742-12.pom
       shell: bash
+    - run: curl -L https://gsmet:${{ inputs.artifact-read-token }}@maven.pkg.github.com/gsmet/github-action-playground/io/github/gsmet/github-action-playground/1.0.0-SNAPSHOT/github-action-playground-1.0.0-20220722.093742-12.pom
+      shell: bash
+    - run: ~/.jbang/bin/jbang --verbose --repos 'https://gsmet:${{ inputs.artifact-read-token }}@maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+      shell: bash
+      env:
+        JSON_INPUTS: ${{ toJSON(inputs) }}
     - run: ~/.jbang/bin/jbang --verbose --repos 'https://${{ inputs.maven-repository-read-token }}@maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
       shell: bash
       env:
