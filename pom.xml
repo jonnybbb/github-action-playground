@@ -7,6 +7,7 @@
     <groupId>io.github.gsmet</groupId>
     <artifactId>github-action-playground</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <description>Playground for Quarkus GitHub Action</description>
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <maven.compiler.release>11</maven.compiler.release>
@@ -119,6 +120,52 @@
                 <quarkus.package.type>native</quarkus.package.type>
             </properties>
         </profile>
+        <profile>
+            <id>flatten</id>
+            <activation>
+                <property>
+                    <name>quarkus.package.type</name>
+                    <value>uber-jar</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <version>1.2.7</version>
+                        <configuration>
+                            <pomElements>
+                                <description>keep</description>
+                                <url>keep</url>
+                                <developers>keep</developers>
+                                <scm>keep</scm>
+                                <issueManagement>keep</issueManagement>
+                                <repositories>remove</repositories>
+                                <dependencies>remove</dependencies>
+                                <build>remove</build>
+                            </pomElements>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>flatten</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>flatten.clean</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
     <distributionManagement>
         <repository>
@@ -143,4 +190,35 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <developers>
+        <developer>
+            <id>gsmet</id>
+            <name>Guillaume Smet</name>
+            <organization>Quarkus</organization>
+            <organizationUrl>https://quarkus.io</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm child.scm.connection.inherit.append.path="false"
+         child.scm.developerConnection.inherit.append.path="false"
+         child.scm.url.inherit.append.path="false">
+        <url>https://github.com/gsmet/github-action-playground</url>
+        <connection>scm:git:git@github.com:gsmet/github-action-playground.git</connection>
+        <developerConnection>scm:git:git@github.com:gsmet/github-action-playground.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/gsmet/github-action-playground/issues/</url>
+    </issueManagement>
 </project>
