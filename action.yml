@@ -17,7 +17,7 @@ runs:
   steps:
     - run: curl -Ls https://sh.jbang.dev | bash -s - app setup
       shell: bash
-    - run: curl -v -L https://${{ inputs.maven-repository-read-token }}@maven.pkg.github.com/gsmet/github-action-playground/io/github/gsmet/github-action-playground/1.0.0-SNAPSHOT/github-action-playground-1.0.0-20220722.093742-12.pom
+    - run: curl -L https://${{ inputs.maven-repository-read-token }}@maven.pkg.github.com/gsmet/github-action-playground/io/github/gsmet/github-action-playground/1.0.0-SNAPSHOT/github-action-playground-1.0.0-20220722.093742-12.pom
       shell: bash
     - run: ~/.jbang/bin/jbang --verbose --repos 'https://${{ inputs.maven-repository-read-token }}@maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
       shell: bash
