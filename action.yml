@@ -18,4 +18,4 @@ runs:
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
-        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
