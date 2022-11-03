@@ -12,8 +12,7 @@ public class PlaygroundAction {
         System.out.println(inputs.get("who-to-greet"));
 
         commands.setOutput("testKey", "testValue");
+        commands.setOutput("testKey2", "testValue2");
         commands.jobSummary("## Test :rocket:");
-
-        context.print();
     }
 }
