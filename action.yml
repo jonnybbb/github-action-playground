@@ -18,7 +18,10 @@ runs:
         curl -s "https://get.sdkman.io" | bash 
         source "/home/runner/.sdkman/bin/sdkman-init.sh"
         sdk install java
-        sdk install jbang 0.97.0
+        # works with 0.97.0
+        # sdk install jbang 0.97.0
+        # doesn't work with the latest version
+        sdk install jbang
         #~/.jbang/bin/jbang --verbose --repos 'github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
         jbang --verbose --repos 'github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
       shell: bash
