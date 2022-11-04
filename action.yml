@@ -12,12 +12,20 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: curl -Ls https://sh.jbang.dev | bash -s - app setup
+    #- run: curl -Ls https://sh.jbang.dev | bash -s - app setup
+    #  shell: bash
+    - run: |
+        curl -s "https://get.sdkman.io" | bash 
+        source ~/.bash_profile
+        sdk install java
+        sdk install jbang 0.97.0
       shell: bash
+
     - run: |
         echo "TOKEN: ${GITHUB_TOKEN}"
         echo "ACTOR: ${GITHUB_ACTOR}"
-        ~/.jbang/bin/jbang --verbose --repos 'github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+        #~/.jbang/bin/jbang --verbose --repos 'github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+        jbang --verbose --repos 'github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
