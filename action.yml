@@ -16,7 +16,7 @@ runs:
     #  shell: bash
     - run: |
         curl -s "https://get.sdkman.io" | bash 
-        source ~/.bash_profile
+        source "/home/runner/.sdkman/bin/sdkman-init.sh"
         sdk install java
         sdk install jbang 0.97.0
       shell: bash
