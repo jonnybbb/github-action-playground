@@ -8,13 +8,15 @@ inputs:
     default: 'World'
   github_token:
     description: 'GitHub token'
-    required: false
+    required: true
 runs:
   using: "composite"
   steps:
     - run: curl -Ls https://sh.jbang.dev | bash -s - app setup
       shell: bash
-    - run: ~/.jbang/bin/jbang --verbose --repos 'github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+    - run: |
+        echo "TOKEN: ${GITHUB_TOKEN}"
+        ~/.jbang/bin/jbang --verbose --repos 'github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
