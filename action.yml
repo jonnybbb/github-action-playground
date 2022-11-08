@@ -13,18 +13,11 @@ runs:
   using: "composite"
   steps:
     - run: curl -Ls https://sh.jbang.dev | bash -s - app setup
+      name: Install JBang
       shell: bash
     - run: |
-        #curl -s "https://get.sdkman.io" | bash 
-        #source "/home/runner/.sdkman/bin/sdkman-init.sh"
-        #sdk install java
-        # works with 0.97.0
-        #sdk install jbang 0.97.0
-        # doesn't work with the latest version
-        #sdk install jbang
         ~/.jbang/bin/jbang --verbose --repos github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
-        #jbang --verbose --repos "github=https://maven.pkg.github.com/gsmet/github-action-playground/" --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
-        #cat ${GITHUB_OUTPUT}
+      name: Execute action
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
