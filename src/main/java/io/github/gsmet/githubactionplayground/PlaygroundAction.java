@@ -14,5 +14,7 @@ public class PlaygroundAction {
         commands.setOutput("testKey", "testValue");
         commands.setOutput("testKey2", "testValue2");
         commands.jobSummary("## Test :rocket:");
+
+        context.print();
     }
 }
