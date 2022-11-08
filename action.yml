@@ -24,6 +24,7 @@ runs:
         #sdk install jbang
         #~/.jbang/bin/jbang --verbose --repos github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
         jbang --verbose --repos "github=https://maven.pkg.github.com/gsmet/github-action-playground/" --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+        cat ${GITHUB_OUTPUT}
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
