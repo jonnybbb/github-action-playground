@@ -22,8 +22,8 @@ runs:
         sdk install jbang 0.97.0
         # doesn't work with the latest version
         #sdk install jbang
-        #~/.jbang/bin/jbang --verbose --repos github=https://maven.pkg.github.com/${GITHUB_ACTION_REPOSITORY}/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
-        jbang --verbose --repos "github=https://maven.pkg.github.com/${GITHUB_ACTION_REPOSITORY}/" --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+        #~/.jbang/bin/jbang --verbose --repos github=https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+        jbang --verbose --repos "github=https://maven.pkg.github.com/gsmet/github-action-playground/" --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
