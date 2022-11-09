@@ -9,6 +9,13 @@ inputs:
   github_token:
     description: 'GitHub token'
     required: true
+outputs:
+  testKey:
+    description: "testKey"
+    value: ${{ steps.action.outputs.testKey }}
+  testKey2:
+    description: "testKey2"
+    value: ${{ steps.action.outputs.testKey2 }}
 runs:
   using: "composite"
   steps:
@@ -16,6 +23,7 @@ runs:
       shell: bash
     - run: |
         ~/.jbang/bin/jbang --verbose --repos github='https://maven.pkg.github.com/gsmet/github-action-playground/' --repos 'mavencentral' io.github.gsmet:github-action-playground:1.0.0-SNAPSHOT
+      id: action
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
