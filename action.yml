@@ -6,15 +6,13 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  github_token:
+  github-token:
     description: 'GitHub token'
     required: true
 outputs:
   testKey:
-    description: "testKey"
     value: ${{ steps.action.outputs.testKey }}
   testKey2:
-    description: "testKey2"
     value: ${{ steps.action.outputs.testKey2 }}
 runs:
   using: "composite"
@@ -27,4 +25,4 @@ runs:
       shell: bash
       env:
         JSON_INPUTS: ${{ toJSON(inputs) }}
-        GITHUB_TOKEN: ${{ inputs.github_token }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
