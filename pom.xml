@@ -4,7 +4,7 @@
     xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.gsmet</groupId>
+    <groupId>io.github.jonnybbb</groupId>
     <artifactId>github-action-playground</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <description>Playground for Quarkus GitHub Action</description>
@@ -193,10 +193,9 @@
 
     <developers>
         <developer>
-            <id>gsmet</id>
-            <name>Guillaume Smet</name>
-            <organization>Quarkus</organization>
-            <organizationUrl>https://quarkus.io</organizationUrl>
+            <id>jonnybbb</id>
+            <name>Johannes Bühler</name>
+            <organization>None</organization>            
         </developer>
     </developers>
 
@@ -211,14 +210,14 @@
     <scm child.scm.connection.inherit.append.path="false"
          child.scm.developerConnection.inherit.append.path="false"
          child.scm.url.inherit.append.path="false">
-        <url>https://github.com/gsmet/github-action-playground</url>
-        <connection>scm:git:git@github.com:gsmet/github-action-playground.git</connection>
-        <developerConnection>scm:git:git@github.com:gsmet/github-action-playground.git</developerConnection>
+        <url>https://github.com/jonnybbb/github-action-playground</url>
+        <connection>scm:git:git@github.com:jonnybbb/github-action-playground.git</connection>
+        <developerConnection>scm:git:git@github.com:jonnybbb/github-action-playground.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/gsmet/github-action-playground/issues/</url>
+        <url>https://github.com/jonnybbb/github-action-playground/issues/</url>
     </issueManagement>
 </project>
